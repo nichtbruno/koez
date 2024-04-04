@@ -1,6 +1,7 @@
 :root {
     /* background-color: #0F131C; */
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: Inter, JetBrains Mono, monospace; */
+    font-family: monospace;
     color: #F6F9FF;
     /* background-color: #0A0D10; */
 
@@ -10,12 +11,23 @@
     --teritary-color: #52C951;
 }
 
-.title {
+.title, .Ttitle {
     display: flex;
+    justify-content: space-between;
 }
 
-h4 {
+h4, p {
     margin: 0 5px 0 0;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--secondary-color);
+}
+a:hover {
+    color: var(--teritary-color);
+    border-bottom: 1px dashed var(--teritary-color);
 }
 
 body {
@@ -126,6 +138,7 @@ body {
 
 /* BUTTONS */
 button, button:focus {
+    font-family: monospace;
     padding: 15px;
     width: 260px;
     margin: 10px;

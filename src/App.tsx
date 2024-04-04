@@ -92,7 +92,11 @@ function App() {
     return (
         <>
             <span className="title">
-                <h4>KOEZ</h4>
+                <a href="https://nichtbruno.github.io/">← go to my page</a>
+                <div className="Ttitle">
+                    <h4>KOEZ</h4>
+                    <p> v.1.0.2</p>
+                </div>
             </span>
             <div className="rest">
                 <div className="middleRest">
