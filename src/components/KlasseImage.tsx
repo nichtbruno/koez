@@ -2,25 +2,17 @@ import { MutableRefObject, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 
 interface KIProps {
+    isObject: boolean,
+    handleObjectChange: () => void, 
     klasse: Klasse,
     cref?: MutableRefObject<HTMLDivElement | null>,
 }
 
-function KlasseImage({ klasse, cref }: KIProps) {
+function KlasseImage({ isObject, handleObjectChange, klasse, cref }: KIProps) {
     const [currentColor, setCurrentColor] = useState("#5DADE2");
-    const [isObject, setIsObject] = useState(false);
 
     const handleColorChange = (color: string) => {
         setCurrentColor(color);
-    }
-
-    const handleObjectChange = () => {
-        if (!isObject) {
-            document.documentElement.style.setProperty('--object-radius', '15px');
-        } else {
-            document.documentElement.style.setProperty('--object-radius', '0px');
-        }
-        setIsObject(!isObject);
     }
 
     const astyle = {
@@ -39,7 +31,7 @@ function KlasseImage({ klasse, cref }: KIProps) {
                             </div>
                         ) :
                             <div className="property-row">
-                                <div className="property-name">example :/= type</div>
+                                <div className="property-name">example{isObject ? " =" : ":"} type</div>
                             </div>
                         }
                     </div>

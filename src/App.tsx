@@ -36,6 +36,16 @@ function App() {
     };
 
     const [klasse, setKlasse] = useState<Klasse>({ name: "", attributes: [], methodes: [] });
+    const [isObject, setIsObject] = useState(false);
+
+    const handleObjectChange = () => {
+        if (!isObject) {
+            document.documentElement.style.setProperty('--object-radius', '15px');
+        } else {
+            document.documentElement.style.setProperty('--object-radius', '0px');
+        }
+        setIsObject(!isObject);
+    }
 
     const handleNameChange = (newName: string) => {
         setKlasse({ name: newName, attributes: klasse.attributes, methodes: klasse.methodes });
@@ -82,15 +92,15 @@ function App() {
     return (
         <>
             <span className="title">
-                <h4>KOEZ</h4><i> - by Bruno</i>
+                <h4>KOEZ</h4>
             </span>
             <div className="rest">
                 <div className="middleRest">
-                    <button onClick={() => handleCopyImage()}>📋 Copy Image</button>
-                    <button onClick={() => handleDownloadImage()}>💾 Download Image</button>
+                    <button id="copy-button" onClick={() => handleCopyImage()}>📋 Copy Image</button>
+                    <button id="download-button" onClick={() => handleDownloadImage()}>💾 Download Image</button>
                 </div>
-                <KlasseImage cref={elementRef} klasse={klasse} />
                 <input className="spec-input" placeholder="Name" value={klasse.name} onChange={e => { handleNameChange(e.target.value) }} />
+                <KlasseImage isObject={isObject} handleObjectChange={handleObjectChange} cref={elementRef} klasse={klasse} />
                 <div className="superpair">
                     <div className="middlepair">
                         <div className="pair">
@@ -98,12 +108,14 @@ function App() {
                         </div>
                         <AttributesList attributes={klasse.attributes} onAttributeChange={handleAttributesChange} onAttributeDelete={handleAttributeDelete} />
                     </div>
-                    <div className="middlepair">
-                        <div className="pair">
-                            <button onClick={handleAddMethodes}>+ Add Method</button>
+                    {!isObject &&
+                        <div className="middlepair">
+                            <div className="pair">
+                                <button onClick={handleAddMethodes}>+ Add Method</button>
+                            </div>
+                            <MethodesList methodes={klasse.methodes} onMethodeChange={handleMethodesChanges} onMethodeDelete={handleMethodDelete} />
                         </div>
-                        <MethodesList methodes={klasse.methodes} onMethodeChange={handleMethodesChanges} onMethodeDelete={handleMethodDelete} />
-                    </div>
+                    }
                 </div>
             </div>
         </>

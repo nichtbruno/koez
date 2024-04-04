@@ -2,9 +2,12 @@
     /* background-color: #0F131C; */
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color: #F6F9FF;
-    background-image: linear-gradient(90deg, #0B0B0B, #111111);
+    /* background-color: #0A0D10; */
 
     --object-radius: 0%;
+    --primary-color: #0A0D10;
+    --secondary-color: #ffffff;
+    --teritary-color: #52C951;
 }
 
 .title {
@@ -17,6 +20,8 @@ h4 {
 
 body {
     margin-bottom: 50px;
+    background-color: var(--primary-color);
+    /* zoom: 125%; */
 }
 
 .rest {
@@ -24,8 +29,7 @@ body {
     flex-direction: column;
     justify-content: center;
     place-items: center;
-    /* min-height: 100vh; */
-    margin-top: 150px;
+    margin-top: 40px;
 
     text-align: center;
 }
@@ -42,6 +46,7 @@ body {
     display: flex;
     margin-left: 160px;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .input-list {
@@ -51,21 +56,20 @@ body {
 
 .superpair {
     display: flex;
-    margin-left: 160px;
-    padding-right: 160px;
+    justify-content: center;
 }
 
 .pair {
     display: flex;
-    margin-top: 20px;
 }
 
+/* CONTAINER */
 .app-container {
   min-width: 100px;
   border: 2px solid;
   color: black;
   border-radius: var(--object-radius);
-  box-shadow: 0 0px 8px 0 #5F5F5Faa, 0 6px 20px 0 #5F5F5F44;
+  box-shadow: 0 0px 8px 0 #2f2f2faa, 0 6px 20px 0 #2f2f2f44;
   user-select: none;
 }
 
@@ -85,6 +89,7 @@ body {
 
 .property-row {
   display: flex;
+  white-space: nowrap;
 }
 
 .property-name {
@@ -117,59 +122,114 @@ body {
 .method-row, .property-container, .app-container {
   border-color: black;
 }
+/* CONTAINER */
 
-.middleRest {
-    margin-bottom: 15px;
-}
-
+/* BUTTONS */
 button {
     padding: 15px;
-    width: 208px;
-    background: #222222;
-    color: #ffffff;
-    border: 2px solid #444444;
+    width: 260px;
     margin: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     cursor: pointer;
-    box-shadow: 0 0px 8px 0 #2E2E2Eaa, 0 6px 20px 0 #2E2E2E44;
+    /* box-shadow: 0 0px 8px 0 #292929aa, 0 6px 20px 0 #29292944; */
+    border: 1px dashed var(--secondary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     user-select: none;
 }
-button:hover {
-    background: #2a2a2a;
+button:hover, button:active {
+    background: var(--secondary-color);
+    color: var(--primary-color);
 }
-button:active {
-    background: #3f3f3f;
+
+#copy-button:active, #download-button:active {
+    background: var(--teritary-color);
+    border: 1px dashed var(--teritary-color);
 }
 
 .deleteButton {
     padding: 0;
-    width: 22px;
-    height: 22px;
-    background: #FF3232;
-    border: 0px solid;
-    margin: 0px 10px;
-    border-radius: 50%;
+    width: 31px;
+    height: 36px;
+    background: var(--primary-color);
+    border: 1px dashed #FF3232;
+    margin: 0px 5px;
+    /* border-radius: 50%; */
 }
 .deleteButton:hover {
-    background: #FF5353;
+    background: #FF3232;
 }
 
 .objButton {
     margin-top: 20px;
 }
+/* BUTTONS */
+
+.middleRest {
+    margin-bottom: 15px;
+}
 
 input {
     padding: 10px;
-    background: #2e2e2e;
-    border: 2px solid #444444;
-    border-radius: 10px;
+    background: #1d1d1d;
+    width: 200px;
+    border: 1px dashed #444444;
+    /* border-radius: 10px; */
     color: white;
-    margin: 3px 0 3px 10px;
+    margin: 3px 0 3px 5px;
+}
+input:focus {
+    outline: none;
+    border-radius: 0px;
+    border: 1px dashed var(--secondary-color);
 }
 
 .spec-input {
-    margin: 0;
-    width: 185px;
+    margin: 0 0 10px 0;
+    width: 235px;
 }
 
-/* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+@media screen and (max-width: 675px) {
+    .diggas {
+        display: flex;
+        margin: 5px 0 0 0;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .small {
+        display: flex;
+        justify-content: center;
+    }
+
+    .small .react-colorful {
+        height: 150px;
+        width: 200px;
+        padding-left: 0px;
+        padding-top: 15px;
+        cursor: pointer;
+    }
+
+    .superpair {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        /* margin-left: 160px; */
+        /* padding-right: 160px; */
+    }
+
+    .middlepair {
+        padding-top: 10px;
+    }
+
+    .middleRest {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5px;
+        margin-top: 0px;
+    }
+
+    .objButton {
+        margin-bottom: 5px;
+    }
+}
