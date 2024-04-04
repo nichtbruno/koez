@@ -137,7 +137,7 @@ body {
 /* CONTAINER */
 
 /* BUTTONS */
-button, button:focus {
+button {
     font-family: monospace;
     padding: 15px;
     width: 260px;
@@ -153,6 +153,9 @@ button, button:focus {
 button:hover, button:active {
     background: var(--secondary-color);
     color: var(--primary-color);
+}
+button:focus {
+
 }
 
 #copy-button:active, #download-button:active {
