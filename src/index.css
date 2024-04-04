@@ -125,7 +125,7 @@ body {
 /* CONTAINER */
 
 /* BUTTONS */
-button {
+button, button:focus {
     padding: 15px;
     width: 260px;
     margin: 10px;
